@@ -22,5 +22,7 @@ public class TextSender {
     public void send(Text message) {
         LOG.info("sending message='{}' to topic='{}'", message, topic);
         kafkaTemplate.send(topic, message);
+        LOG.info("message='{}' sent to topic='{}'", message, topic);
+
     }
 }

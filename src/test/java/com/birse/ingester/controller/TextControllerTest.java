@@ -1,6 +1,7 @@
 package com.birse.ingester.controller;
 
 import com.birse.ingester.Application;
+import com.birse.ingester.KafkaProducerTest;
 import com.birse.ingester.resource.Data;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
@@ -9,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -21,8 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
         webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
         classes = Application.class)
 @AutoConfigureMockMvc
-
-public class TextControllerTest {
+public class TextControllerTest extends KafkaProducerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -31,7 +30,7 @@ public class TextControllerTest {
     ObjectMapper objectMapper;
 
     @Test
-    public void testCreatePerson() throws Exception {
+    public void testSendData() throws Exception {
         this.mockMvc.perform(
                 post("/text")
                         .contentType(MediaType.APPLICATION_JSON)

@@ -14,6 +14,10 @@ public class Text {
     public Text() {
         id = RandomIDGenerator.generateLong();
     }
+    public Text(String text) {
+        id = RandomIDGenerator.generateLong();
+        this.text = text;
+    }
 
     public LocalDateTime getTime() {
         return time;

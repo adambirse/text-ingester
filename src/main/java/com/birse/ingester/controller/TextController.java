@@ -22,6 +22,7 @@ public class TextController {
 
     @PostMapping
     public ResponseEntity<Void> save(Data data) {
-        return null;
+        textService.send(data);
+        return ResponseEntity.ok(null);
     }
 }
