@@ -17,6 +17,7 @@ import static org.hamcrest.Matchers.samePropertyValuesAs;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@DirtiesContext
 public class TextSenderTest extends KafkaProducerTest {
     @Autowired
     private TextSender sender;

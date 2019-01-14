@@ -20,21 +20,23 @@ import java.util.Map;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
+@DirtiesContext
 public abstract class KafkaProducerTest {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(KafkaProducerTest.class);
 
     private static String SENDER_TOPIC = "text";
 
-    private static KafkaMessageListenerContainer<Long, Text> container;
+    private  KafkaMessageListenerContainer<Long, Text> container;
 
-    protected static BlockingQueue<ConsumerRecord<Long, Text>> records;
+    protected  BlockingQueue<ConsumerRecord<Long, Text>> records;
 
     @ClassRule
     public static KafkaEmbedded embeddedKafka = new KafkaEmbedded(1, true, SENDER_TOPIC);
 
-    @BeforeClass
-    public static void setUp() throws Exception {
+
+    @Before
+    public void setUp() throws Exception {
         // set up the Kafka consumer properties
         Map<String, Object> consumerProperties =
                 KafkaTestUtils.consumerProps("sender", "false", embeddedKafka);
@@ -72,8 +74,8 @@ public abstract class KafkaProducerTest {
         ContainerTestUtils.waitForAssignment(container, embeddedKafka.getPartitionsPerTopic());
     }
 
-    @AfterClass
-    public static void tearDown() {
+    @After
+    public void tearDown() {
         container.stop();
     }
 }
