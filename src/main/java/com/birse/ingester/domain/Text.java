@@ -34,4 +34,13 @@ public class Text {
     public void setText(String text) {
         this.text = text;
     }
+
+    @Override
+    public String toString() {
+        return "Text{" +
+                "id=" + id +
+                ", time=" + time +
+                ", text='" + text + '\'' +
+                '}';
+    }
 }

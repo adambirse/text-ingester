@@ -3,7 +3,9 @@ package com.birse.ingester;
 import com.birse.ingester.domain.Text;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.common.serialization.LongDeserializer;
-import org.junit.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.ClassRule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
@@ -27,9 +29,9 @@ public abstract class KafkaProducerTest {
 
     private static String SENDER_TOPIC = "text";
 
-    private  KafkaMessageListenerContainer<Long, Text> container;
+    private KafkaMessageListenerContainer<Long, Text> container;
 
-    protected  BlockingQueue<ConsumerRecord<Long, Text>> records;
+    protected BlockingQueue<ConsumerRecord<Long, Text>> records;
 
     @ClassRule
     public static KafkaEmbedded embeddedKafka = new KafkaEmbedded(1, true, SENDER_TOPIC);

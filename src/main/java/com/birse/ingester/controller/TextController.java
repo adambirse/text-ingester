@@ -5,6 +5,7 @@ import com.birse.ingester.service.TextService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,7 +22,7 @@ public class TextController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> save(Data data) {
+    public ResponseEntity<Void> save(@RequestBody Data data) {
         textService.send(data);
         return ResponseEntity.ok(null);
     }

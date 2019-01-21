@@ -34,4 +34,11 @@ public class Data {
         this.date = date;
     }
 
+    @Override
+    public String toString() {
+        return "Data{" +
+                "text='" + text + '\'' +
+                ", date=" + date +
+                '}';
+    }
 }

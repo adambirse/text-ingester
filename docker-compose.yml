@@ -1,0 +1,10 @@
+version: '3'
+services:
+  text-ingester:
+    image: text-ingester:latest
+    ports:
+      - "8080:8080"
+networks:
+  default:
+    external:
+      name: kafka-docker-compose_kafka
