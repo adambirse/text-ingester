@@ -16,14 +16,15 @@
 
 ## Running
 
-`cd ..`
+Follow the instructions here to start a kafka cluster and to create the `text` topic
 
-`./run_docker.sh`
+https://github.com/adambirse/kafka-docker-compose
+
+`cd ../..`
+
+`docker-compose up -d`
 
 
-### Kafka cluster in docker
-
-https://github.com/adambirse/kafka-spring-boot
-
+### Send some data
 
 `curl -d '{"text":"value"}' -H "Content-Type: application/json" -X POST http://localhost:8080/text`
