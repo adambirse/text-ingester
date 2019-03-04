@@ -14,8 +14,6 @@ public class Text {
 
     private Long id;
 
-    @JsonSerialize(using = LocalDateTimeSerializer.class)
-    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     private LocalDateTime time;
 
     private String text;

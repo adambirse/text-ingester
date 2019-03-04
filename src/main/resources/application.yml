@@ -2,16 +2,6 @@ spring:
   jackson:
     serialization:
       write_dates_as_timestamps: false
-  kafka:
-    bootstrap-servers: "kafka1:9092,kafka2:9092,kafka3:9092"
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.LongSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-      properties:
-        spring:
-          json:
-            trusted:
-              packages: 'com.birse.ingester.domain'
 app:
   topic:
     text: text
