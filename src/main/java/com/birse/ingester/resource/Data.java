@@ -1,12 +1,14 @@
 package com.birse.ingester.resource;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 public class Data {
 
-    @NotNull
+    @NotBlank
     private String text;
 
     private LocalDateTime date;

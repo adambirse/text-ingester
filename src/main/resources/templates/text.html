@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <title>Text Ingest</title>
+</head>
+<body>
+<h1>Enter text to ingest</h1>
+
+<form action="#" th:action="@{/text}" th:object="${data}" method="post">
+    <label for="text">Text</label>
+    <p><input type="text" id="text" th:field="*{text}"/></p>
+        <span th:if="${#fields.hasErrors('text')}" th:errors="*{text}"></span>
+    <p><input type="submit" value="Add Text"/></p>
+</form>
+</body>
+</html>
