@@ -35,7 +35,7 @@ public class TextController {
     }
 
     @PostMapping("/text")
-    public String addUser(@Valid Data data, BindingResult result, Model model) {
+    public String addData(@Valid Data data, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "text";
         }
