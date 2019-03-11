@@ -1,13 +1,13 @@
 package com.birse.ingester;
 
 import com.birse.ingester.domain.Text;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.LongSerializer;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
@@ -22,6 +22,9 @@ import java.util.Map;
 @EnableKafka
 @Configuration
 public class KafkaConfig {
+
+    @Value("${app.kafka.bootstrap-servers}")
+    private String servers;
 
     @Bean
     public ObjectMapper getObjectMapper() {
@@ -38,7 +41,7 @@ public class KafkaConfig {
         Map<String, Object> props = new HashMap<>();
         props.put(
                 ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,
-                "kafka1:9092,kafka2:9092,kafka3:9092");
+                servers);
 
         return new DefaultKafkaProducerFactory<>(props, new LongSerializer(), new JsonSerializer<>(getObjectMapper()));
     }

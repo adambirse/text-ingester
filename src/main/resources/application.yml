@@ -5,7 +5,8 @@ spring:
 app:
   topic:
     text: text
-
+  kafka:
+    bootstrap-servers: kafka1:9092,kafka2:9092,kafka3:9092
 logging:
   level:
     root: WARN
