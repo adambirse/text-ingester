@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-    <title>Text Ingest</title>
+    <div th:replace="fragments/header :: header-css"/>
 </head>
 <body>
-<h1>Home Page</h1>
-<a href = "/text">Add Some Text</a>
+
+<div th:replace="fragments/header :: header"/>
+<div class="container">
+<a class="btn btn-default" href = "/text">Add Some Text</a>
+</div>
 </body>
 </html>

@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-    <title>Text Ingest</title>
+    <div th:replace="fragments/header :: header-css"/>
 </head>
 <body>
-<h1>Enter text to ingest</h1>
+<div th:replace="fragments/header :: header"/>
+<div class="container">
 
-<form action="#" th:action="@{/text}" th:object="${data}" method="post">
-    <label for="text">Text</label>
-    <p><input type="text" id="text" th:field="*{text}"/></p>
-        <span th:if="${#fields.hasErrors('text')}" th:errors="*{text}"></span>
-    <p><input type="submit" value="Add Text"/></p>
-</form>
+    <form action="#" th:action="@{/text}" th:object="${data}" method="post">
+        <div class="form-group">
+            <label for="text">Text</label>
+            <textarea rows="3" class="form-control" id="text" th:field="*{text}"/>
+                <span th:if="${#fields.hasErrors('text')}" th:errors="*{text}"></span>
+        </div>
+        <button type="submit" class="btn btn-primary" >Submit</button>
+    </form>
+</div>
 </body>
 </html>
