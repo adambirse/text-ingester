@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Service
 public class TextService {
@@ -31,7 +30,7 @@ public class TextService {
     private Text construct(Data data) {
         LOG.debug("Incoming data = " + data.toString());
         Text text = new Text();
-        text.setTime(data.getDate() != null ? data.getDate() : LocalDate.now());
+        text.setDate(data.getDate() != null ? data.getDate() : LocalDate.now());
         text.setText(data.getText());
         LOG.debug("converted text = " + text.toString());
         return text;
