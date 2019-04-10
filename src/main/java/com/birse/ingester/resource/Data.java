@@ -1,9 +1,9 @@
 package com.birse.ingester.resource;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Data {
@@ -11,9 +11,11 @@ public class Data {
     @NotBlank
     private String text;
 
-    private LocalDateTime date;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate date;
 
     public Data() {
+        date = LocalDate.now();
     }
 
     public Data(String text) {
@@ -28,11 +30,11 @@ public class Data {
         this.text = text;
     }
 
-    public LocalDateTime getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(LocalDateTime date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

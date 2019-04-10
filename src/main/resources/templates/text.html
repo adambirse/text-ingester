@@ -12,8 +12,11 @@
             <label for="text">Text</label>
             <textarea rows="3" class="form-control" id="text" th:field="*{text}"/>
                 <span th:if="${#fields.hasErrors('text')}" th:errors="*{text}"></span>
+            <label for="date">Date Cost Incurred:</label>
+            <input type="date" th:field="*{date}" id="date"/>
+                <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></span>
         </div>
-        <button type="submit" class="btn btn-primary" >Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
 </body>

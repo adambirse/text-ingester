@@ -2,7 +2,7 @@
 
 set -e
 echo "building ......"
-./gradlew build
+./gradlew build -x test
 cd docker
 ./prepare_build_docker.sh
 cd build_context
